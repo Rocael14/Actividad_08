@@ -19,6 +19,12 @@ def Suma(n):
         return 0
     else:
         return n + Suma(n-1)
+def Fibonacci(numero_fibonacci):
+    if numero_fibonacci == 0 or numero_fibonacci == 1:
+        return 1
+    else:
+        return Fibonacci(numero_fibonacci - 2) +Fibonacci(numero_fibonacci - 1)
+
 while True:
     Menu()
     try:
@@ -35,9 +41,11 @@ while True:
             case 3:
                 print("Fibonacci")
                 numero_fubonacci = int(input("Ingrese un numero entero positivo(Fibonacci): "))
-
+                print(f"El fibonacci es: {Fibonacci(numero_fubonacci)}")
             case 4:
                 print("Letra en una palabra")
+                palabra = input("Ingresa una palabra: ")
+                letra = input("Ingresa una letra: ")
             case 5:
                 print("Invertir Palabra")
             case 6:
