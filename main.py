@@ -13,6 +13,12 @@ def Factorial(numero):
         return 1
     else:
         return numero * Factorial(numero - 1)
+
+def Suma(n):
+    if n == 0:
+        return 0
+    else:
+        return n + Suma(n-1)
 while True:
     Menu()
     try:
@@ -24,8 +30,12 @@ while True:
                 print(f"El factorial es: {Factorial(numero)}")
             case 2:
                 print("Suma de N numeros naturales")
+                numero_natural = int(input("Ingresa un numero entero positivo: "))
+                print(f"La suma desde 1 hasta {numero_natural} es: {Suma(numero_natural)}")
             case 3:
                 print("Fibonacci")
+                numero_fubonacci = int(input("Ingrese un numero entero positivo(Fibonacci): "))
+
             case 4:
                 print("Letra en una palabra")
             case 5:
