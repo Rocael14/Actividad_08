@@ -8,6 +8,11 @@ def Menu():
     print("6. Potencia")
     print("7. Salir")
 
+def Factorial(numero):
+    if numero == 1:
+        return 1
+    else:
+        return numero * Factorial(numero - 1)
 while True:
     Menu()
     try:
@@ -15,6 +20,8 @@ while True:
         match opcion:
             case 1:
                 print("Factorial")
+                numero = int(input("Ingresa una numero entero Positivo(Factorial): "))
+                print(f"El factorial es: {Factorial(numero)}")
             case 2:
                 print("Suma de N numeros naturales")
             case 3:
