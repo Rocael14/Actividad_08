@@ -24,6 +24,13 @@ def Fibonacci(numero_fibonacci):
         return 1
     else:
         return Fibonacci(numero_fibonacci - 2) +Fibonacci(numero_fibonacci - 1)
+def letra_palabra(letra, palabra, numero_letra):
+    if numero_letra < 0:
+        return 0
+    if palabra[numero_letra] == letra:
+        return 1 + letra_palabra(letra, palabra, numero_letra - 1)
+    else:
+        return letra_palabra(letra, palabra, numero_letra - 1)
 
 while True:
     Menu()
@@ -44,8 +51,9 @@ while True:
                 print(f"El fibonacci es: {Fibonacci(numero_fubonacci)}")
             case 4:
                 print("Letra en una palabra")
-                palabra = input("Ingresa una palabra: ")
-                letra = input("Ingresa una letra: ")
+                palabra = input("Ingresa una palabra: ").lower()
+                letra = input("Ingresa una letra: ").lower()
+                print(f"La letra ---{letra}--- aparece {letra_palabra(letra, palabra, len(palabra) - 1)} veces en la palabra ---{palabra}----")
             case 5:
                 print("Invertir Palabra")
             case 6:
