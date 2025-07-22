@@ -24,19 +24,25 @@ def Fibonacci(numero_fibonacci):
         return 1
     else:
         return Fibonacci(numero_fibonacci - 2) +Fibonacci(numero_fibonacci - 1)
-def letra_palabra(letra, palabra, numero_letra):
+def Letra_palabra(letra, palabra, numero_letra):
     if numero_letra < 0:
         return 0
     if palabra[numero_letra] == letra:
         return 1 + letra_palabra(letra, palabra, numero_letra - 1)
     else:
-        return letra_palabra(letra, palabra, numero_letra - 1)
-def palabra_invertida(palabra, numero_letra):
+        return Letra_palabra(letra, palabra, numero_letra - 1)
+def Palabra_invertida(palabra, numero_letra):
     if numero_letra < 0:
-        return 0
+        return ""
     else:
-        print(palabra[numero_letra])
-        return palabra_invertida(palabra, numero_letra - 1)
+        return palabra[numero_letra] + Palabra_invertida(palabra, numero_letra - 1)
+
+def Potencia(base, exponente):
+    if exponente == 0:
+        return 1
+    else:
+        return base * Potencia(base, exponente - 1)
+
 while True:
     Menu()
     try:
@@ -58,14 +64,17 @@ while True:
                 print("Letra en una palabra")
                 palabra = input("Ingresa una palabra: ").lower()
                 letra = input("Ingresa una letra: ").lower()
-                print(f"La letra ---{letra}--- aparece {letra_palabra(letra, palabra, len(palabra) - 1)} veces en la palabra ---{palabra}----")
+                print(f"La letra ---{letra}--- aparece {Letra_palabra(letra, palabra, len(palabra) - 1)} veces en la palabra ---{palabra}----")
             case 5:
                 print("Invertir Palabra")
                 palabra = input("Ingresa una palabra: ").lower()
-                print("Tu palabra invertida es")
-                palabra_invertida(palabra, len(palabra) - 1)
+                print(f"Tu palabra invertida es: {Palabra_invertida(palabra, len(palabra) - 1)}")
+
             case 6:
                 print("Potencia")
+                numero_potencia = int(input("Ingresa un numero base entero positivo: "))
+                exponente = int(input("Ingresa el exponente entero positivo: "))
+                print(f"{numero_potencia} con exponente {exponente} es: {Potencia(numero_potencia, exponente)}")
             case 7:
                 print("Gracias por utilizar el programa")
                 break
