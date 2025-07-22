@@ -28,7 +28,7 @@ def Letra_palabra(letra, palabra, numero_letra):
     if numero_letra < 0:
         return 0
     if palabra[numero_letra] == letra:
-        return 1 + letra_palabra(letra, palabra, numero_letra - 1)
+        return 1 + Letra_palabra(letra, palabra, numero_letra - 1)
     else:
         return Letra_palabra(letra, palabra, numero_letra - 1)
 def Palabra_invertida(palabra, numero_letra):
