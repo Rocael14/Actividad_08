@@ -31,7 +31,12 @@ def letra_palabra(letra, palabra, numero_letra):
         return 1 + letra_palabra(letra, palabra, numero_letra - 1)
     else:
         return letra_palabra(letra, palabra, numero_letra - 1)
-
+def palabra_invertida(palabra, numero_letra):
+    if numero_letra < 0:
+        return 0
+    else:
+        print(palabra[numero_letra])
+        return palabra_invertida(palabra, numero_letra - 1)
 while True:
     Menu()
     try:
@@ -56,6 +61,9 @@ while True:
                 print(f"La letra ---{letra}--- aparece {letra_palabra(letra, palabra, len(palabra) - 1)} veces en la palabra ---{palabra}----")
             case 5:
                 print("Invertir Palabra")
+                palabra = input("Ingresa una palabra: ").lower()
+                print("Tu palabra invertida es")
+                palabra_invertida(palabra, len(palabra) - 1)
             case 6:
                 print("Potencia")
             case 7:
